@@ -34,6 +34,36 @@ def postOrder(root):
         postOrder(root.left)
         postOrder(root.right)
         print(root.data)
+
+def height(root):
+    if root==None:
+        return -1
+    elif root!=None and root.left==None and root.right==None:
+        return 0
+    else:
+        return max(height(root.left),height(root.right))+1#root
+    
+def Counting(root):
+    if root==None:
+        return 0
+    elif root!=None and root==None and root.right==None:
+        return 1
+    else:
+        le=Counting(root.left)        
+        rp=Counting(root.right)
+        return le+rp+1
+    
+def countingleaf(root):
+    count=0
+    if root==None:
+        return count
+    elif root!=None and root.left==None and root.right==None:
+        count+=1
+        return count
+    else:
+        lp=countingleaf(root.left) 
+        rp=countingleaf(root.right)
+        return lp+rp
         
 preOrder(root)
 inOrder(root)
